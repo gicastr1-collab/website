@@ -2,10 +2,384 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Personal Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio website for a web development student.">
+  <title>Xi Isaiah Castro | Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Add your HTML content here -->
+  <!-- Site header and navigation -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a href="#home" class="logo" data-index="0">Xi<span>Castro</span></a>
+
+      <div class="nav-links">
+        <a href="#home" data-index="0">Home</a>
+        <a href="#about" data-index="1">About</a>
+        <a href="#skills" data-index="2">Skills</a>
+        <a href="#projects" data-index="3">Projects</a>
+        <a href="#inspiration" data-index="4">Inspiration</a>
+        <a href="#contact" data-index="5">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Fixed hero header (appears on every page) -->
+  <section class="hero-header">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <p class="eyebrow">Web Development Student</p>
+        <h1>Building clean, modern websites using ideas to mold reality.</h1>
+        <p class="lead">
+          I am a beginner web developer learning how to design and build digital
+          experiences that are simple, useful, and visually appealing.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="button primary">Projects</a>
+          <a href="#contact" class="button secondary">Contact Me</a>
+        </div>
+
+        <ul class="mini-stats" aria-label="Quick facts">
+          <li><strong>First</strong><span>Year Learning</span></li>
+          <li><strong>4+</strong><span>Projects Planned</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-card" aria-label="Profile summary">
+        <a href="#about" class="hero-photo-link" aria-label="Profile photo link">
+          <div class="hero-photo-placeholder">Photo</div>
+        </a>
+        <div class="card-box">
+          <p class="card-label">Current Focus</p>
+          <h3>HTML, CSS, and interpreting code to learn new skills.</h3>
+        </div>
+        <div class="mini-list">
+          <div>
+            <span>Learning</span>
+            <strong>Front-End</strong>
+          </div>
+          <div>
+            <span>Goal</span>
+            <strong>Portfolio</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main slider area -->
+  <main class="slider-shell">
+    <div class="slide-dots" id="slide-dots" aria-label="Slide pagination"></div>
+
+    <div class="slides" id="slides">
+
+      <!-- About slide -->
+      <section id="about" class="slide section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">About</p>
+            <h2>Passionate about learning and creating meaningful web experiences.</h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-image-wrap">
+              <div class="about-image" aria-label="Profile portrait placeholder">
+                <span>Photo</span>
+              </div>
+            </div>
+
+            <div class="about-copy visible">
+              <p>
+                I am a student in a web development course, and I am building a portfolio
+                to show the projects I create as I grow my skills. I enjoy learning how
+                structure, color, spacing, and typography work together to make a website
+                look clean and professional.
+              </p>
+              <p>
+                My goal is to keep improving my design and coding skills while creating
+                simple, functional, and user-friendly experiences for real people.
+              </p>
+
+              <aside class="info-card">
+                <h3>Quick Facts</h3>
+                <ul>
+                  <li><span>Location</span><strong>Your City</strong></li>
+                  <li><span>Course</span><strong>Web Development</strong></li>
+                  <li><span>Interests</span><strong>UI Design</strong></li>
+                  <li><span>Focus</span><strong>Front-End</strong></li>
+                </ul>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills slide -->
+      <section id="skills" class="slide section alt-bg">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Skills</p>
+            <h2>Tools and skills I am learning right now.</h2>
+          </div>
+
+          <div class="skills-grid">
+            <article class="skill-card">
+              <a href="#" class="skill-image-link" aria-label="HTML skill image link">
+                <div class="skill-icon icon-html" aria-label="HTML placeholder image"></div>
+              </a>
+              <h3>HTML</h3>
+              <p>Creating a solid page structure with semantic elements and clean content.</p>
+            </article>
+
+            <article class="skill-card">
+              <a href="#" class="skill-image-link" aria-label="CSS skill image link">
+                <div class="skill-icon icon-css" aria-label="CSS placeholder image"></div>
+              </a>
+              <h3>CSS</h3>
+              <p>Styling pages with colors, spacing, layout, and responsive design principles.</p>
+            </article>
+
+            <article class="skill-card">
+              <a href="#" class="skill-image-link" aria-label="Responsive design skill image link">
+                <div class="skill-icon icon-responsive" aria-label="Responsive design placeholder image"></div>
+              </a>
+              <h3>Responsive Design</h3>
+              <p>Making websites look good on desktop, tablet, and mobile screens.</p>
+            </article>
+
+            <article class="skill-card">
+              <a href="#" class="skill-image-link" aria-label="Problem solving skill image link">
+                <div class="skill-icon icon-problem" aria-label="Problem solving placeholder image"></div>
+              </a>
+              <h3>Problem Solving</h3>
+              <p>Learning to troubleshoot errors, improve layouts, and build better code.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects slide -->
+      <section id="projects" class="slide section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Projects</p>
+            <h2>Portfolio pieces I plan to build and showcase.</h2>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-image project-one">
+                <span>Landing Page</span>
+              </div>
+              <div class="project-body">
+                <h3>Business Landing Page</h3>
+                <p>A simple marketing page with a clear message, call-to-action, and modern layout.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-image project-two">
+                <span>Portfolio</span>
+              </div>
+              <div class="project-body">
+                <h3>Personal Portfolio</h3>
+                <p>A clean one-page portfolio to present my work, skills, and contact information.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-image project-three">
+                <span>Blog</span>
+              </div>
+              <div class="project-body">
+                <h3>Simple Blog Layout</h3>
+                <p>A content-focused page for posts, articles, and reading-friendly formatting.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Inspiration slide -->
+      <section id="inspiration" class="slide section alt-bg inspiration">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Things that inspire me</p>
+            <h2>Websites I like for their clean, modern design.</h2>
+          </div>
+
+          <div class="inspiration-links">
+            <a href="https://www.nicolesantamaria.design/" target="_blank" rel="noreferrer">Nicole Santamaria—Graphic Designer</a>
+            <a href="https://yaycub.bearblog.dev/v202607/" target="_blank" rel="noreferrer">yaycub's blog</a>
+            <a href="https://wutheringwaves.kurogames.com/en/" target="_blank" rel="noreferrer">Wuthering Waves Official Website</a>
+          </div>
+
+          <p class="inspiration-copy">
+            I like websites that use generous spacing, readable typography, soft shadows,
+            and simple color palettes. I want my portfolio to feel modern and professional,
+            but still personal and beginner-friendly enough for me to edit and improve over time.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact slide -->
+      <section id="contact" class="slide section contact-section">
+        <div class="container contact-box">
+          <div class="contact-copy">
+            <p class="eyebrow">Contact</p>
+            <h2>Let’s build something great together.</h2>
+            <p>
+              If you want to collaborate, ask a question, or just say hello, I would love to hear from you.
+            </p>
+            <ul>
+              <li>Email: hello@example.com</li>
+              <li>Location: Your City</li>
+              <li>Instagram: @yourusername</li>
+            </ul>
+          </div>
+
+          <form class="contact-form">
+            <label>
+              Name
+              <input type="text" name="name" placeholder="How should I address you?">
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" placeholder="How about your email address?">
+            </label>
+
+            <label>
+              Message
+              <textarea name="message" rows="5" placeholder="Write your message here"></textarea>
+            </label>
+
+            <button type="submit" class="button primary">Off the message goes!</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Xi Isaiah Castro</p>
+      <div class="social-links">
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // --------------------------------------------------
+    // JavaScript for the slider and navigation
+    // --------------------------------------------------
+    // 1. Select the elements we need from the page.
+    //    - slides = every section in the slider
+    //    - slidesTrack = the container that moves left/right
+    //    - navLinks = the header links and the logo
+    //    - dotsContainer = the area where the dot buttons live
+    const slides = document.querySelectorAll('.slide');
+    // querySelectorAll() finds all matching elements and puts them in a list.
+    // This gives us every slide section on the page.
+
+    const slidesTrack = document.querySelector('.slides');
+    // querySelector() finds the first matching element.
+    // This is the container that moves left and right to show different slides.
+
+    const navLinks = document.querySelectorAll('.nav-links a, .logo');
+    // This gets the header links and the logo so they can also update when a slide changes.
+
+    const dotsContainer = document.getElementById('slide-dots');
+    // getElementById() gets one element by its HTML id.
+    // The dots will be added inside this container.
+
+    let currentSlide = 0;
+    // currentSlide stores the number of the slide we are currently on.
+
+    // 2. Create the dots at the top of the page.
+    //    Each dot is a button that tells the slider which slide to show.
+    function createDots() {
+      if (!dotsContainer) return;
+
+      slides.forEach((_, index) => {
+        // forEach() runs the same code for every slide.
+        // The index tells us the position of each slide in the list.
+
+        const dot = document.createElement('button');
+        // createElement() makes a new HTML element.
+        // Here it creates a button for each slide dot.
+
+        dot.type = 'button';
+        dot.className = 'slide-dot';
+        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        // setAttribute() adds extra information to the button.
+        // This helps screen readers know what the button does.
+
+        dot.addEventListener('click', () => showSlide(index));
+        // addEventListener() listens for a click.
+        // When clicked, it calls showSlide(index) to switch slides.
+
+        dotsContainer.appendChild(dot);
+        // appendChild() adds the new button to the dots area.
+      });
+    }
+
+    // 3. Show a specific slide.
+    //    This moves the track to the left, updates the active dot,
+    //    and highlights the matching nav link.
+    function showSlide(index) {
+      if (!slidesTrack || slides.length === 0) return;
+
+      const lastIndex = slides.length - 1;
+      currentSlide = Math.min(Math.max(index, 0), lastIndex);
+      slidesTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+      // translateX() moves the slide track left or right.
+      // Multiplying by 100 creates the horizontal slider effect.
+
+      const dots = document.querySelectorAll('.slide-dot');
+      // This finds every slide dot so we can update which one looks active.
+
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle('active', dotIndex === currentSlide);
+        // classList.toggle() adds or removes the class 'active'.
+        // If the dot matches the current slide, it gets the active styling.
+      });
+
+      navLinks.forEach((link) => {
+        const linkIndex = Number(link.dataset.index);
+        const isActive = !Number.isNaN(linkIndex) && linkIndex === currentSlide;
+        link.classList.toggle('active', isActive);
+        // This highlights the matching nav link for the current slide.
+      });
+    }
+
+    // 4. When a navigation link is clicked, move to that slide.
+    //    We check the data-index value on each link so it knows which slide to open.
+    navLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        // When a nav link is clicked, this code runs.
+        const linkIndex = Number(link.dataset.index);
+        // data-index stores the slide number on each link.
+
+        if (!Number.isNaN(linkIndex)) {
+          event.preventDefault();
+          // preventDefault() stops the browser from jumping to the anchor immediately.
+          // We want our custom slider code to control the slide change.
+
+          showSlide(linkIndex);
+          // This tells the slider to move to the selected slide.
+        }
+      });
+    });
+
+    // 5. Start the slider when the page loads.
+    createDots();
+    showSlide(currentSlide);
+  </script>
 </body>
 </html>

@@ -1,1 +1,771 @@
-/* Add you CSS here */
+/* --------------------------------------------------
+   Base styles and layout
+   - This section sets up the colors, page spacing,
+   - and general rules that make the whole site look consistent.
+   -------------------------------------------------- */
+:root {
+  --bg: #151515;
+  --surface: #242424;
+  --surface-alt: #2f2a28;
+  --primary: #d6c1a8;
+  --primary-dark: #bda38d;
+  --secondary: #f1e6d8;
+  --accent: #e9dcc7;
+  --navy: #f7f2ea;
+  --text: #2f2a28;
+  --muted: #4e4a45;
+  --border: rgba(24, 24, 24, 0.12);
+  --shadow: 0 0 22px rgba(214, 193, 168, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(214, 193, 168, 0.12), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 30%),
+    linear-gradient(180deg, #111111 0%, #1d1a18 100%);
+  color: var(--text);
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+}
+
+.slider-shell {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  flex: 1;
+  margin-top: 560px;
+  /* Adds space for the fixed hero header */
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide {
+  min-width: 100%;
+  padding: 42px 0 56px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  transform: translateX(0);
+  position: relative;
+}
+
+/* --------------------------------------------------
+   Slide and slider styles
+   - These rules control the horizontal slider and the dot navigation.
+   -------------------------------------------------- */
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 18px 0 auto auto;
+  width: 180px;
+  height: 180px;
+  background: rgba(214, 193, 168, 0.08);
+  z-index: 0;
+}
+
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: auto auto 18px 12%;
+  width: 140px;
+  height: 140px;
+  background: rgba(241, 230, 216, 0.08);
+  z-index: 0;
+}
+
+.slide > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Slider dots */
+.slide-dots {
+  display: flex; /* Places the dots in a row */
+  justify-content: center; /* Centers them across the width */
+  gap: 28px; /* Adds space between each dot */
+  padding: 32px 24px 40px;
+  position: relative;
+  z-index: 5; /* Keeps the dots above the slide content */
+  background: rgba(21, 21, 21, 0.8);
+  border-bottom: 1px solid rgba(241, 230, 216, 0.2);
+  box-shadow: inset 0 -8px 18px rgba(241, 230, 216, 0.03);
+}
+
+.slide-dot {
+  width: 18px; /* Small square dot size */
+  height: 18px;
+  border: 2px solid rgba(241, 230, 216, 0.35);
+  background: rgba(26, 26, 26, 0.95);
+  cursor: pointer; /* Makes it feel clickable */
+  transition: all 0.25s ease; /* Smooth hover/active animation */
+  padding: 0;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.slide-dot.active {
+  width: 24px; /* Makes the active dot bigger */
+  height: 24px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  box-shadow: 0 0 18px rgba(241, 230, 216, 0.3); /* Adds a glow to show the current slide */
+}
+
+.alt-bg {
+  background: #ffffff;
+  border: none;
+}
+
+.slide.section {
+  background: #ffffff;
+}
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin: 0 0 12px;
+  color: #4f473f;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.7rem, 5vw, 5rem);
+  line-height: 1.02;
+  margin-bottom: 20px;
+  letter-spacing: -0.06em;
+  color: #181818;
+}
+
+h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1.2;
+  margin-bottom: 0;
+  color: #181818;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  color: #181818;
+}
+
+p {
+  color: #3d3a37;
+  font-size: 1rem;
+}
+
+/* --------------------------------------------------
+   Header and navigation styles
+   - This section controls the dark header bar and the nav links.
+   -------------------------------------------------- */
+.site-header {
+  position: sticky; /* Keeps the header at the top while scrolling */
+  top: 0;
+  z-index: 10; /* Keeps it above the rest of the page */
+  background: rgba(17, 17, 17, 0.9);
+  backdrop-filter: blur(10px); /* Soft glass effect */
+  border-bottom: 1px solid rgba(241, 230, 216, 0.2);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28); /* Adds depth */
+}
+
+.navbar {
+  display: flex; /* Puts the logo and links side by side */
+  justify-content: space-between; /* Pushes them apart */
+  align-items: center; /* Aligns them vertically */
+  min-height: 72px;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 12px rgba(241, 230, 216, 0.12);
+}
+
+.logo span {
+  color: #ffffff;
+}
+
+.nav-links {
+  display: flex; /* Keeps links in a row */
+  gap: 24px; /* Adds space between links */
+  flex-wrap: wrap; /* Lets links wrap if the screen is narrow */
+}
+
+.nav-links a {
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease, text-shadow 0.2s ease; /* Smooth hover effect */
+}
+
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a.active {
+  color: #f5efe7;
+  text-shadow: none;
+}
+
+.hero-header {
+  /* Fixed positioning keeps the hero at the top of the page */
+  position: fixed;
+  top: 72px;
+  /* Positions below the sticky header (navbar is 72px) */
+  left: 0;
+  right: 0;
+  z-index: 9;
+  /* Stays above slides but below the navigation header */
+  background: #ffffff;
+  padding: 44px 0 30px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(24, 24, 24, 0.08);
+}
+
+.hero-content {
+  display: flex; /* Places the text and image card side by side */
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text,
+.hero-card {
+  flex: 1;
+}
+
+.lead {
+  max-width: 560px;
+  font-size: 1.08rem;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border-radius: 0;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover,
+.button:focus {
+  transform: translateY(-1px);
+}
+
+.button.primary {
+  background: #f5efe7;
+  color: #121212;
+  border: 2px solid rgba(18, 18, 18, 0.12);
+  box-shadow: 0 0 18px rgba(214, 193, 168, 0.18);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.button.primary:hover,
+.button.primary:focus {
+  background: #efe4d7;
+}
+
+.button.secondary {
+  background: #f5efe7;
+  color: #121212;
+  border: 2px solid rgba(18, 18, 18, 0.12);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.mini-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.mini-stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 110px;
+}
+
+.mini-stats strong {
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.mini-stats span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.hero-card {
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 24, 0.12);
+  border-radius: 0;
+  padding: 24px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+  border-top: 5px solid var(--primary);
+}
+
+.hero-photo-link {
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.hero-photo-placeholder {
+  width: 100%;
+  min-height: 420px;
+  background: linear-gradient(135deg, #efebe6 0%, #e0d3c2 100%);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: #2d2d2d;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card-box {
+  background: linear-gradient(135deg, rgba(214, 193, 168, 0.12), rgba(255, 255, 255, 0.8));
+  border-radius: 0;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(24, 24, 24, 0.08);
+}
+
+.card-label {
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.mini-list {
+  display: grid; /* Creates a simple 2-column layout */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* Two equal columns */
+  gap: 16px; /* Space between the two boxes */
+}
+
+.mini-list div {
+  background: #f5efe7;
+  border: 1px solid rgba(24, 24, 24, 0.12);
+  border-radius: 0;
+  padding: 12px 14px;
+  color: #1d1b19;
+}
+
+.mini-list span {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4a443f;
+  margin-bottom: 4px;
+}
+
+.about-grid,
+.contact-box {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-grid {
+  align-items: stretch;
+}
+
+.about-image-wrap,
+.about-copy,
+.contact-copy,
+.info-card,
+.contact-form {
+  flex: 1;
+}
+
+.about-image-wrap {
+  display: flex;
+}
+
+.about-image {
+  width: 100%;
+  min-height: 420px;
+  background: linear-gradient(135deg, #efebe6 0%, #e0d3c2 100%);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: #2d2d2d;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+
+.about-copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 24, 0.12);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+  padding: 28px;
+}
+
+.about-copy p {
+  margin-bottom: 20px;
+}
+
+.info-card {
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 24, 0.1);
+  border-radius: 0;
+  padding: 22px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+  margin-top: 10px;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-card li {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-card li:last-child {
+  border-bottom: none;
+}
+
+.info-card span {
+  color: var(--muted);
+}
+
+/* --------------------------------------------------
+   Skills and projects card styles
+   - These rules shape the cards and image boxes in the skills/projects sections.
+   -------------------------------------------------- */
+.skills-grid,
+.projects-grid {
+  display: flex; /* Keeps cards in a horizontal row */
+  gap: 24px; /* Space between cards */
+  padding-bottom: 10px;
+}
+
+.skill-card,
+.project-card {
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 24, 0.1);
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  flex: 0 0 280px;
+}
+
+.skill-card {
+  padding: 24px;
+}
+
+.skill-image-link {
+  display: block;
+  margin-bottom: 18px;
+  background: #f5efe7;
+  border: 1px solid rgba(24, 24, 24, 0.12);
+  padding: 12px;
+  text-decoration: none;
+}
+
+.skill-icon {
+  width: 100%;
+  height: 90px;
+  display: block;
+  background: #f5efe7;
+  border: 1px solid rgba(24, 24, 24, 0.12);
+  position: relative;
+}
+
+.skill-card h3 {
+  margin-bottom: 12px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-image {
+  height: 150px;
+  display: flex;
+  align-items: end;
+  justify-content: start;
+  padding: 16px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.project-one {
+  background: linear-gradient(135deg, #ff8f3d 0%, #d63384 100%);
+}
+
+.project-two {
+  background: linear-gradient(135deg, #6f7cff 0%, #d883ff 100%);
+}
+
+.project-three {
+  background: linear-gradient(135deg, #2d6fe8 0%, #8db5ff 100%);
+}
+
+.project-body {
+  padding: 18px 18px 20px;
+}
+
+/* --------------------------------------------------
+   Inspiration and contact styles
+   - These rules style the website links and the contact form.
+   -------------------------------------------------- */
+.inspiration-links {
+  display: flex; /* Keeps the inspiration links side by side */
+  gap: 16px; /* Space between each link */
+  flex-wrap: wrap; /* Moves them to the next line on small screens */
+  margin-bottom: 18px;
+}
+
+.inspiration-links a {
+  background: linear-gradient(135deg, rgba(214, 193, 168, 0.1), rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 0.7rem 1rem;
+  color: var(--text);
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(214, 193, 168, 0.06);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.inspiration-links a:hover,
+.inspiration-links a:focus {
+  background: #f5efe7;
+  border-color: rgba(24, 24, 24, 0.18);
+  color: #1d1b19;
+}
+
+.inspiration-copy {
+  max-width: 760px;
+}
+
+.contact-section {
+  padding-bottom: 100px;
+}
+
+.contact-box {
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 24, 0.1);
+  border-radius: 0;
+  padding: 24px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+}
+
+.contact-copy ul {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0 0;
+  color: var(--muted);
+}
+
+.contact-copy li + li {
+  margin-top: 10px;
+}
+
+.contact-form {
+  display: flex; /* Stacks the form fields vertically */
+  flex-direction: column;
+  gap: 18px; /* Space between each label and input */
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+  color: #1d1d1d;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 0.8rem 0.9rem;
+  font: inherit;
+  background: #f8f5f1;
+  color: #1d1d1d;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid rgba(79, 110, 247, 0.2);
+  border-color: var(--primary);
+}
+
+/* --------------------------------------------------
+   Footer styles
+   - The footer stays pinned to the bottom of the page layout.
+   -------------------------------------------------- */
+.site-footer {
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.75), rgba(17, 17, 17, 1));
+  color: #f8f3ee;
+  padding: 25px 0;
+  margin-top: auto;
+  border-top: 1px solid rgba(241, 230, 216, 0.18);
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-content p {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.social-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* --------------------------------------------------
+   Responsive styles
+   - These rules help the layout adapt on smaller screens.
+   -------------------------------------------------- */
+@media (max-width: 900px) {
+  .hero-content,
+  .about-grid,
+  .contact-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .skills-grid,
+  .projects-grid {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px 0;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+
+  .hero {
+    padding-top: 60px;
+  }
+
+  .skills-grid,
+  .projects-grid,
+  .mini-list {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
