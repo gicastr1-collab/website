@@ -370,18 +370,13 @@ p {
 }
 
 .hero-photo {
-  
+  /* Image for the hero section */
   width: 100%;
   min-height: 420px;
-  background: linear-gradient(135deg, #efebe6 0%, #e0d3c2 100%);
   border: 1px solid var(--border);
-  display: grid;
-  place-items: center;
-  color: #2d2d2d;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .card-box {
