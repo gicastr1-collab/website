@@ -61,6 +61,8 @@ img {
   overflow: hidden;
   background: transparent;
   flex: 1;
+  padding-top: 60px;
+  /* Provides space below the sticky header so content doesn't overlap */
 }
 
 .slides {
