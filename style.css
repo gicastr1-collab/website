@@ -369,7 +369,8 @@ p {
   text-decoration: none;
 }
 
-.hero-photo-placeholder {
+.hero-photo {
+  
   width: 100%;
   min-height: 420px;
   background: linear-gradient(135deg, #efebe6 0%, #e0d3c2 100%);
