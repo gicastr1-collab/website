@@ -239,20 +239,20 @@
             </ul>
           </div>
 
-          <form class="contact-form">
+          <form class="contact-form" method="POST" action="https://formspree.io/f/xelrvqnd">
             <label>
               Name
-              <input type="text" name="name" placeholder="How should I address you?">
+              <input type="text" name="name" placeholder="How should I address you?" required>
             </label>
 
             <label>
               Email
-              <input type="email" name="email" placeholder="How about your email address?">
+              <input type="email" name="email" placeholder="How about your email address?" required>
             </label>
 
             <label>
               Message
-              <textarea name="message" rows="5" placeholder="Write your message here"></textarea>
+              <textarea name="message" rows="5" placeholder="Write your message here" required></textarea>
             </label>
 
             <button type="submit" class="button primary">Off the message goes!</button>
