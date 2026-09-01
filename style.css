@@ -56,7 +56,12 @@ img {
   margin: 0 auto;
 }
 
-
+.slider-shell {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  flex: 1;
+}
 
 .slides {
   display: flex;
