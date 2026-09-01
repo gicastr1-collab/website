@@ -11,14 +11,14 @@
   <!-- Site header and navigation -->
   <header class="site-header">
     <nav class="navbar container" aria-label="Main navigation">
-      <a href="#home" class="logo" data-index="0">Xi<span>Castro</span></a>
+      <a href="#home" class="logo">Xi<span>Castro</span></a>
 
       <div class="nav-links">
-        <a href="#about" data-index="1">About</a>
-        <a href="#skills" data-index="2">Skills</a>
-        <a href="#projects" data-index="3">Projects</a>
-        <a href="#inspiration" data-index="4">Inspiration</a>
-        <a href="#contact" data-index="5">Contact</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#inspiration">Inspiration</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
@@ -67,14 +67,10 @@
     </div>
   </section>
 
-  <!-- Main slider area -->
-  <main class="slider-shell">
-    <div class="slide-dots" id="slide-dots" aria-label="Slide pagination"></div>
-
-    <div class="slides" id="slides">
-
-      <!-- About slide -->
-      <section id="about" class="slide section">
+  <!-- Main content area -->
+  <main>
+      <!-- About section -->
+      <section id="about" class="section">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">About</p>
@@ -114,8 +110,8 @@
         </div>
       </section>
 
-      <!-- Skills slide -->
-      <section id="skills" class="slide section alt-bg">
+      <!-- Skills section -->
+      <section id="skills" class="section alt-bg">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Skills</p>
@@ -158,8 +154,8 @@
         </div>
       </section>
 
-      <!-- Projects slide -->
-      <section id="projects" class="slide section">
+      <!-- Projects section -->
+      <section id="projects" class="section">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Projects</p>
@@ -200,8 +196,8 @@
         </div>
       </section>
 
-      <!-- Inspiration slide -->
-      <section id="inspiration" class="slide section alt-bg inspiration">
+      <!-- Inspiration section -->
+      <section id="inspiration" class="section alt-bg inspiration">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Things that inspire me</p>
@@ -222,8 +218,8 @@
         </div>
       </section>
 
-      <!-- Contact slide -->
-      <section id="contact" class="slide section contact-section">
+      <!-- Contact section -->
+      <section id="contact" class="section contact-section">
         <div class="container contact-box">
           <div class="contact-copy">
             <p class="eyebrow">Contact</p>
@@ -258,7 +254,6 @@
           </form>
         </div>
       </section>
-    </div>
   </main>
 
   <!-- Site footer -->
@@ -273,112 +268,6 @@
     </div>
   </footer>
 
-  <script>
-    // --------------------------------------------------
-    // JavaScript for the slider and navigation
-    // --------------------------------------------------
-    // 1. Select the elements we need from the page.
-    //    - slides = every section in the slider
-    //    - slidesTrack = the container that moves left/right
-    //    - navLinks = the header links and the logo
-    //    - dotsContainer = the area where the dot buttons live
-    const slides = document.querySelectorAll('.slide');
-    // querySelectorAll() finds all matching elements and puts them in a list.
-    // This gives us every slide section on the page.
 
-    const slidesTrack = document.querySelector('.slides');
-    // querySelector() finds the first matching element.
-    // This is the container that moves left and right to show different slides.
-
-    const navLinks = document.querySelectorAll('.nav-links a, .logo');
-    // This gets the header links and the logo so they can also update when a slide changes.
-
-    const dotsContainer = document.getElementById('slide-dots');
-    // getElementById() gets one element by its HTML id.
-    // The dots will be added inside this container.
-
-    let currentSlide = 0;
-    // currentSlide stores the number of the slide we are currently on.
-
-    // 2. Create the dots at the top of the page.
-    //    Each dot is a button that tells the slider which slide to show.
-    function createDots() {
-      if (!dotsContainer) return;
-
-      slides.forEach((_, index) => {
-        // forEach() runs the same code for every slide.
-        // The index tells us the position of each slide in the list.
-
-        const dot = document.createElement('button');
-        // createElement() makes a new HTML element.
-        // Here it creates a button for each slide dot.
-
-        dot.type = 'button';
-        dot.className = 'slide-dot';
-        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-        // setAttribute() adds extra information to the button.
-        // This helps screen readers know what the button does.
-
-        dot.addEventListener('click', () => showSlide(index));
-        // addEventListener() listens for a click.
-        // When clicked, it calls showSlide(index) to switch slides.
-
-        dotsContainer.appendChild(dot);
-        // appendChild() adds the new button to the dots area.
-      });
-    }
-
-    // 3. Show a specific slide.
-    //    This moves the track to the left, updates the active dot,
-    //    and highlights the matching nav link.
-    function showSlide(index) {
-      if (!slidesTrack || slides.length === 0) return;
-
-      const lastIndex = slides.length - 1;
-      currentSlide = Math.min(Math.max(index, 0), lastIndex);
-      slidesTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-      // translateX() moves the slide track left or right.
-      // Multiplying by 100 creates the horizontal slider effect.
-
-      const dots = document.querySelectorAll('.slide-dot');
-      // This finds every slide dot so we can update which one looks active.
-
-      dots.forEach((dot, dotIndex) => {
-        dot.classList.toggle('active', dotIndex === currentSlide);
-        // classList.toggle() adds or removes the class 'active'.
-        // If the dot matches the current slide, it gets the active styling.
-      });
-
-      navLinks.forEach((link) => {
-        const linkIndex = Number(link.dataset.index);
-        const isActive = !Number.isNaN(linkIndex) && linkIndex === currentSlide;
-        link.classList.toggle('active', isActive);
-        // This highlights the matching nav link for the current slide.
-      });
-    }
-
-    // 4. When a navigation link is clicked, move to that slide.
-    //    We check the data-index value on each link so it knows which slide to open.
-    navLinks.forEach((link) => {
-      link.addEventListener('click', (event) => {
-        // When a nav link is clicked, this code runs.
-        const linkIndex = Number(link.dataset.index);
-        // data-index stores the slide number on each link.
-
-        if (!Number.isNaN(linkIndex)) {
-          event.preventDefault();
-          // preventDefault() stops the browser from jumping to the anchor immediately.
-          // We want our custom slider code to control the slide change.
-
-          showSlide(linkIndex);
-          // This tells the slider to move to the selected slide.
-        }
-      });
-    });
-
-    // 5. Start the slider when the page loads.
-    createDots();
-    showSlide(currentSlide);
-  </script>
 </body>
 </html>
