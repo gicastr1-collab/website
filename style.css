@@ -56,14 +56,7 @@ img {
   margin: 0 auto;
 }
 
-.slider-shell {
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-  flex: 1;
-  padding-top: 60px;
-  /* Provides space below the sticky header so content doesn't overlap */
-}
+
 
 .slides {
   display: flex;
@@ -203,7 +196,7 @@ p {
    - This section controls the dark header bar and the nav links.
    -------------------------------------------------- */
 .site-header {
-  position: sticky; /* Keeps the header at the top while scrolling */
+  position: column; /* Keeps the header at the top while scrolling */
   top: 0;
   z-index: 10; /* Keeps it above the rest of the page */
   background: rgba(17, 17, 17, 0.9);
