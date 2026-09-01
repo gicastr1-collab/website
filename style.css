@@ -61,8 +61,7 @@ img {
   overflow: hidden;
   background: transparent;
   flex: 1;
-  margin-top: 420px;
-  /* Adds space to account for the fixed hero header */
+  margin-top: 0;
 }
 
 .slides {
@@ -203,15 +202,15 @@ p {
    - This section controls the dark header bar and the nav links.
    -------------------------------------------------- */
 .site-header {
-  position: column; /* Keeps the header at the top while scrolling */
+  position: sticky;
   top: 0;
-  z-index: 10; /* Keeps it above the rest of the page */
+  z-index: 20;
   background: rgba(17, 17, 17, 0.9);
-  backdrop-filter: blur(10px); /* Soft glass effect */
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(241, 230, 216, 0.2);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28); /* Adds depth */
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
 }
 
 .navbar {
@@ -256,14 +255,9 @@ p {
 }
 
 .hero-header {
-  /* Fixed positioning keeps the hero static above the slider */
-  position: fixed;
-  top: 72px;
-  /* Position below the sticky header (navbar is 72px) */
-  left: 0;
-  right: 0;
-  z-index: 8;
-  /* Stays above slides but below the navigation header */
+  position: relative;
+  top: auto;
+  z-index: 1;
   background: #ffffff;
   padding: 44px 0 30px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
@@ -272,7 +266,7 @@ p {
 }
 
 .hero-content {
-  display: flex; /* Places the text and image card side by side */
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 50px;
