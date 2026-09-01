@@ -61,8 +61,6 @@ img {
   overflow: hidden;
   background: transparent;
   flex: 1;
-  margin-top: 560px;
-  /* Adds space for the fixed hero header */
 }
 
 .slides {
@@ -256,14 +254,8 @@ p {
 }
 
 .hero-header {
-  /* Fixed positioning keeps the hero at the top of the page */
-  position: fixed;
-  top: 72px;
-  /* Positions below the sticky header (navbar is 72px) */
-  left: 0;
-  right: 0;
-  z-index: 9;
-  /* Stays above slides but below the navigation header */
+  /* Static positioning allows sections to flow naturally below */
+  position: relative;
   background: #ffffff;
   padding: 44px 0 30px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
