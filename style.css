@@ -120,12 +120,12 @@ h3,
 /* --------------------------------------------------
    Header and navigation styles
    - This section controls the dark header bar and the nav links.
-   - The header sticks to the top of the page as you scroll. edit
+   - The header relativeto the top of the page as you scroll. edit
    -------------------------------------------------- */
 
 /* Site header: sticky navigation bar */
 .site-header {
-  position: relative;  /* Sticks to top while scrolling */
+  position: relative;  /* relative to top while scrolling */
   top: 0;            /* 0 pixels from top */
   z-index: 20;       /* Stays above other content */
   border-bottom: 1px solid rgba(241, 230, 216, 0.2); /* Subtle light border */
