@@ -10,7 +10,7 @@
 :root {
   /* Dark mode background colors */
   --bg: #151515;           /* Very dark background */
-  --surface: #242424;      /* Dark surface color */
+  --surface: #fff;      /* Dark surface color */
   --surface-alt: #2f2a28;  /* Alternative dark surface */
   
   /* Light accent colors for contrast */
