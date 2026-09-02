@@ -426,9 +426,9 @@ p {
   color: var(--muted);
 }
 
-.my-favorite-songs {
+.section-heading2 {
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
 }
 
 .my-favorite-songs .section-heading {
