@@ -368,7 +368,7 @@ p {
 .about-image {
   width: 100%;
   min-height: 420px;
-  background: linear-gradient(135deg, #efebe6 0%, #e0d3c2 100%);
+  background: solid #fff);
   border: 1px solid var(--border);
   display: grid;
   place-items: center;
