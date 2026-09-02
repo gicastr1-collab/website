@@ -129,7 +129,7 @@ main {
   border-bottom: 1px solid rgba(241, 230, 216, 0.2); /* Subtle light border */
   display: flex;     /* Flexbox for layout */
   flex-direction: column; /* Stack children vertically */
-
+background:#282828
 }
 
 /* Navbar: container for logo and nav links */
