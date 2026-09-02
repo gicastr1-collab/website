@@ -125,7 +125,7 @@ h3,
 
 /* Site header: sticky navigation bar */
 .site-header {
-  position: sticky;  /* Sticks to top while scrolling */
+  position: relative;  /* Sticks to top while scrolling */
   top: 0;            /* 0 pixels from top */
   z-index: 20;       /* Stays above other content */
   border-bottom: 1px solid rgba(241, 230, 216, 0.2); /* Subtle light border */
