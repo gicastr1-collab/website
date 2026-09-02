@@ -369,7 +369,7 @@ p {
   width: 100%;
   min-height: 420px;
   background: transparent;);
-  border: 1px solid var(--border);
+  border: 0px solid var(--border);
   display: grid;
   place-items: center;
   color: transparent;
