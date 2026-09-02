@@ -3,178 +3,186 @@
    - This section sets up the colors, page spacing,
    - and general rules that make the whole site look consistent.
    -------------------------------------------------- */
+/* CSS Variables: These store colors and values used throughout the site
+   - They start with -- and can be reused in many places
+   - This makes it easy to change colors globally
+   - Example: background-color: var(--primary) uses the primary color */
 :root {
-  --bg: #151515;
-  --surface: #242424;
-  --surface-alt: #2f2a28;
-  --primary: #d6c1a8;
-  --primary-dark: #bda38d;
-  --secondary: #f1e6d8;
-  --accent: #e9dcc7;
-  --navy: #f7f2ea;
-  --text: #2f2a28;
-  --muted: #4e4a45;
-  --border: rgba(24, 24, 24, 0.12);
-  --shadow: 0 0 22px rgba(214, 193, 168, 0.12);
+  /* Dark mode background colors */
+  --bg: #151515;           /* Very dark background */
+  --surface: #242424;      /* Dark surface color */
+  --surface-alt: #2f2a28;  /* Alternative dark surface */
+  
+  /* Light accent colors for contrast */
+  --primary: #d6c1a8;      /* Main accent color (beige/tan) */
+  --primary-dark: #bda38d; /* Darker version of primary */
+  --secondary: #f1e6d8;    /* Secondary light color */
+  --accent: #e9dcc7;       /* Accent color for highlights */
+  --navy: #f7f2ea;         /* Very light color */
+  
+  /* Text and border colors */
+  --text: #2f2a28;         /* Main text color */
+  --muted: #4e4a45;        /* Muted/secondary text */
+  --border: rgba(24, 24, 24, 0.12); /* Border color with transparency */
+  --shadow: 0 0 22px rgba(214, 193, 168, 0.12); /* Soft shadow effect */
 }
 
+/* This universal selector (*) applies to ALL elements on the page
+   - box-sizing: border-box makes width calculations easier
+   - It includes padding and borders in the total width/height */
 * {
   box-sizing: border-box;
 }
 
+/* HTML (root) element styles */
 html {
-  scroll-behavior: smooth;
-  height: 100%;
+  scroll-behavior: smooth; /* Smooth scrolling when clicking anchor links */
+  height: 100%;            /* Full height of viewport */
 }
 
+/* Body: Main container for all content */
 body {
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;             /* Remove default margins */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Readable sans-serif fonts */
+  /* Background: gradient layers for visual depth */
   background:
     radial-gradient(circle at top left, rgba(214, 193, 168, 0.12), transparent 28%),
     radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 30%),
     linear-gradient(180deg, #111111 0%, #1d1a18 100%);
-  color: var(--text);
-  line-height: 1.7;
+  color: var(--text);    /* Use our primary text color variable */
+  line-height: 1.7;      /* Extra space between lines for readability */
+  /* Flexbox layout: makes footer stick to bottom */
   display: flex;
-  flex-direction: column;
-  min-height: 100%;
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100%;      /* At least full viewport height */
 }
 
+/* Link styles: remove underlines and use parent text color */
 a {
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none; /* Remove underline from links */
+  color: inherit;        /* Use the color of the parent element */
 }
 
+/* Image styles: make images responsive and block-level */
 img {
-  max-width: 100%;
-  display: block;
+  max-width: 100%;    /* Never wider than container */
+  display: block;     /* Removes inline spacing below images */
+  height: auto;       /* Keep aspect ratio */
 }
 
+/* Container: controls max width and centers content */
 .container {
-  width: min(1100px, 90%);
-  margin: 0 auto;
+  width: min(1100px, 90%);  /* Max width of 1100px, but 90% on very small screens */
+  margin: 0 auto;           /* Center the container horizontally */
 }
 
+/* Main content area: takes up available space, pushes footer down */
 main {
-  flex: 1;
+  flex: 1; /* Grows to fill available space */
 }
 
 /* --------------------------------------------------
    Section styles
    -------------------------------------------------- */
+/* Section: large content blocks with padding and white background */
 .section {
-  padding: 42px 0 56px;
-  background: #ffffff;
+  padding: 42px 0 56px;  /* Space above and below content */
+  background: #ffffff;   /* White background for contrast */
 }
 
 .alt-bg {
   background: #ffffff;
 }
 
+/* Section heading: styles for eyebrow + title combinations */
 .section-heading {
-  max-width: 700px;
-  margin-bottom: 30px;
+  max-width: 700px;    /* Limit width for readability */
+  margin-bottom: 30px; /* Space below the heading */
 }
 
+/* Eyebrow: small uppercase text above section titles */
 .eyebrow {
-  display: inline-block;
-  margin: 0 0 12px;
-  color: #4f473f;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  display: inline-block;     /* Only take up needed width */
+  margin: 0 0 12px;          /* Space below eyebrow */
+  color: #4f473f;            /* Muted brown color */
+  font-size: 0.8rem;         /* Small text size */
+  font-weight: 700;          /* Bold weight */
+  letter-spacing: 0.12em;    /* Spread letters apart */
+  text-transform: uppercase; /* All caps */
 }
 
+/* Heading and paragraph baseline styles */
 h1,
 h2,
 h3,
 p {
-  margin-top: 0;
-}
-
-h1 {
-  font-size: clamp(2.7rem, 5vw, 5rem);
-  line-height: 1.02;
-  margin-bottom: 20px;
-  letter-spacing: -0.06em;
-  color: #181818;
-}
-
-h2 {
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  line-height: 1.2;
-  margin-bottom: 0;
-  color: #181818;
-}
-
-h3 {
-  font-size: 1.35rem;
-  margin-bottom: 10px;
-  color: #181818;
-}
-
-p {
-  color: #3d3a37;
-  font-size: 1rem;
-}
+  margin-top: 0; /* Remove default top margin */
+}\n\n/* H1: Main page heading */\nh1 {\n  /* clamp() creates responsive sizing:\n     - minimum 2.7rem\n     - preferred 5vw (5% of viewport width)\n     - maximum 5rem */\n  font-size: clamp(2.7rem, 5vw, 5rem);\n  line-height: 1.02;      /* Tight line spacing for large text */\n  margin-bottom: 20px;    /* Space below heading */\n  letter-spacing: -0.06em; /* Tighter letter spacing for impact */\n  color: #181818;         /* Dark color for contrast */\n}\n\n/* H2: Section headings */\nh2 {\n  font-size: clamp(2rem, 3vw, 2.8rem); /* Responsive sizing */\n  line-height: 1.2;\n  margin-bottom: 0; /* No space below */\n  color: #181818;\n}\n\n/* H3: Subsection headings */\nh3 {\n  font-size: 1.35rem;\n  margin-bottom: 10px;\n  color: #181818;\n}\n\n/* Paragraph text: body copy throughout site */\np {\n  color: #3d3a37;  /* Readable dark color */\n  font-size: 1rem; /* Standard text size */\n}
 
 /* --------------------------------------------------
    Header and navigation styles
    - This section controls the dark header bar and the nav links.
+   - The header sticks to the top of the page as you scroll.
    -------------------------------------------------- */
+
+/* Site header: sticky navigation bar */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(17, 17, 17, 0.9);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(241, 230, 216, 0.2);
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+  position: sticky;  /* Sticks to top while scrolling */
+  top: 0;            /* 0 pixels from top */
+  z-index: 20;       /* Stays above other content */
+  background: rgba(17, 17, 17, 0.9);  /* Dark, slightly transparent */
+  backdrop-filter: blur(10px);        /* Blur effect behind header */
+  border-bottom: 1px solid rgba(241, 230, 216, 0.2); /* Subtle light border */
+  display: flex;     /* Flexbox for layout */
+  flex-direction: column; /* Stack children vertically */
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28); /* Dark shadow for depth */
 }
 
+/* Navbar: container for logo and nav links */
 .navbar {
   display: flex; /* Puts the logo and links side by side */
-  justify-content: space-between; /* Pushes them apart */
-  align-items: center; /* Aligns them vertically */
-  min-height: 72px;
+  justify-content: space-between; /* Pushes logo and links to edges */
+  align-items: center; /* Aligns them vertically in the middle */
+  min-height: 72px; /* Minimum height of navbar */
 }
 
+/* Logo: site branding */
 .logo {
   font-size: 1.4rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  text-shadow: 0 0 12px rgba(241, 230, 216, 0.12);
+  font-weight: 700;      /* Bold font */
+  color: #ffffff;        /* White text */
+  text-transform: uppercase; /* All caps */
+  letter-spacing: 0.08em; /* Spread letters */
+  text-shadow: 0 0 12px rgba(241, 230, 216, 0.12); /* Subtle glow */
 }
 
 .logo span {
-  color: #ffffff;
+  color: #ffffff;        /* Keep span same color */
 }
 
+/* Navigation links list */
 .nav-links {
   display: flex; /* Keeps links in a row */
   gap: 24px; /* Adds space between links */
   flex-wrap: wrap; /* Lets links wrap if the screen is narrow */
 }
 
+/* Navigation link styling */
 .nav-links a {
-  color: #ffffff;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: color 0.2s ease, text-shadow 0.2s ease; /* Smooth hover effect */
+  color: #ffffff;           /* White text */
+  font-weight: 700;         /* Bold */
+  text-transform: uppercase; /* All caps */
+  letter-spacing: 0.05em;   /* Spread letters */
+  /* Smooth animation when hovering */
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
+/* Navigation link on hover or focus */
 .nav-links a:hover,
 .nav-links a:focus,
 .nav-links a.active {
-  color: #f5efe7;
-  text-shadow: none;
+  color: #f5efe7;    /* Lighter color on hover */
+  text-shadow: none; /* Remove glow on hover */
 }
 
 .hero-header {
@@ -696,54 +704,189 @@ p {
 }
 
 /* --------------------------------------------------
-   Responsive styles
-   - These rules help the layout adapt on smaller screens.
+   Responsive styles for tablets and larger screens
+   - @media queries help the layout adapt on smaller screens.
+   - We keep the desktop layout for screens wider than 900px.
+   - For tablets and smaller screens, we stack elements vertically.
    -------------------------------------------------- */
+
+/* Tablet breakpoint: screens smaller than 900px (iPads, small laptops) */
 @media (max-width: 900px) {
+  /* Stack these side-by-side layouts vertically on tablets */
   .hero-content,
   .about-grid,
   .contact-box {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Changes from row to column layout */
+    align-items: flex-start; /* Aligns items to the left */
   }
 
+  /* Skills and projects stay as flex containers */
   .skills-grid,
   .projects-grid {
     display: flex;
+    /* On tablets, these will wrap thanks to flex-wrap */
+    flex-wrap: wrap;
+  }
+
+  /* Reduce padding on sections for tablets */
+  .section {
+    padding: 32px 0 40px; /* Less vertical padding on tablets */
   }
 }
 
-@media (max-width: 600px) {
+/* Mobile breakpoint: screens smaller than 768px (phones and small tablets) */
+@media (max-width: 768px) {
+  /* Make navigation stack vertically on phones */
   .navbar {
     flex-direction: column;
     justify-content: center;
-    padding: 18px 0;
+    padding: 16px 0; /* Reduce padding on small screens */
+    gap: 12px; /* Add space between logo and nav links */
   }
 
+  /* Center the navigation links */
   .nav-links {
     justify-content: center;
+    gap: 16px; /* Reduce gap between links on mobile */
   }
 
-  .hero {
-    padding-top: 60px;
+  /* Make nav links smaller on mobile */
+  .nav-links a {
+    font-size: 0.85rem; /* Slightly smaller text */
   }
 
+  /* Hero section adjustments for mobile */
+  .hero-content {
+    gap: 24px; /* Reduce gap between elements */
+  }
+
+  .hero-photo,
+  .about-image {
+    min-height: 280px; /* Smaller image height on mobile */
+  }
+
+  /* Skills and projects: show one card per row on mobile */
   .skills-grid,
-  .projects-grid,
-  .mini-list {
-    grid-template-columns: 1fr;
+  .projects-grid {
+    flex-wrap: wrap; /* Allow cards to wrap */
+    gap: 16px; /* Reduce gap between cards */
+  }
+
+  /* Make cards flexible and full-width on mobile */
+  .skill-card,
+  .project-card {
+    flex: 1 1 100%; /* Take full width on mobile */
+    min-width: 0; /* Allow cards to shrink below 280px */
+  }
+
+  /* Stack form fields and contact info vertically */
+  .contact-box {
+    flex-direction: column; /* Stack vertically */
+    gap: 24px; /* Space between contact info and form */
+    padding: 20px; /* Reduce padding on mobile */
+  }
+
+  /* Full-width buttons on mobile */
+  .button {
+    width: 100%; /* Fill the width */
+    text-align: center;
+    padding: 0.9rem 1.2rem; /* Slightly larger touch target */
+  }
+
+  /* Stack button group vertically */
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px; /* Space between buttons */
+  }
+
+  /* Mini stats: show in single column on mobile */
+  .mini-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Reduce padding in sections on mobile */
+  .section {
+    padding: 28px 0 36px;
+  }
+
+  /* Make headings responsive on mobile */
+  h1 {
+    font-size: 1.8rem; /* Smaller on mobile */
+  }
+
+  h2 {
+    font-size: 1.4rem; /* Smaller on mobile */
+  }
+
+  /* Reduce padding in cards on mobile */
+  .skill-card {
+    padding: 16px; /* Less padding */
+  }
+
+  .about-copy,
+  .info-card,
+  .hero-card {
+    padding: 16px; /* Consistent padding on mobile */
+  }
+
+  /* Favorite songs: one column on mobile */
+  .my-favorite-songs ul {
+    grid-template-columns: 1fr; /* Single column */
+  }
+
+  /* Make Spotify iframes responsive */
+  .my-favorite-songs iframe {
+    max-width: 100%; /* Full width of container */
+  }
+}
+
+/* Extra small phones: screens smaller than 480px */
+@media (max-width: 480px) {
+  /* Reduce font sizes further for tiny screens */
+  h1 {
+    font-size: 1.4rem; /* Even smaller for small phones */
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 0.9rem; /* Slightly smaller text */
+  }
+
+  /* Reduce all padding for extra small screens */
+  .container {
+    width: 95%; /* Give more margin on tiny screens */
   }
 
   .section {
-    padding: 70px 0;
+    padding: 20px 0 28px; /* Minimal padding */
   }
 
+  .navbar {
+    padding: 12px 0;
+  }
+
+  /* Stack navigation even more compactly */
+  .nav-links {
+    gap: 12px;
+  }
+
+  /* Smaller logo on tiny screens */
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  /* Reduce button size slightly */
   .button {
-    width: 100%;
-    text-align: center;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
   }
 
-  .hero-buttons {
-    flex-direction: column;
+  /* Reduce gap in mini-stats */
+  .mini-stats {
+    gap: 12px;
   }
 }

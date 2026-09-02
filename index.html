@@ -1,18 +1,43 @@
 <!DOCTYPE html>
+<!-- This tells the browser this is an HTML5 document -->
 <html lang="en">
+<!-- lang="en" tells the browser this page is in English -->
+
 <head>
+  <!-- Head section: information ABOUT the page (not visible to users) -->
+  
+  <!-- Character encoding: tells browser to use UTF-8 (supports special characters) -->
   <meta charset="UTF-8">
+  
+  <!-- Viewport: makes site responsive on mobile devices -->
+  <!-- width=device-width: use device's actual width -->
+  <!-- initial-scale=1.0: don't zoom in by default -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Meta description: appears in search results and when sharing -->
   <meta name="description" content="Personal portfolio website for a web development student.">
+  
+  <!-- Page title: appears in browser tab and search results -->
   <title>Xi Isaiah Castro | Portfolio</title>
+  
+  <!-- Link to external CSS file: controls colors, spacing, and layout -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- Site header and navigation -->
+  <!-- Everything users see on the page goes in the body -->
+  
+  <!-- Site header and sticky navigation -->
+  <!-- "sticky" means this header stays at the top when scrolling -->
   <header class="site-header">
+    <!-- Navigation bar with logo and menu links -->
     <nav class="navbar container" aria-label="Main navigation">
+      <!-- aria-label helps screen readers understand this is navigation -->
+      
+      <!-- Logo/site title - links to top of page -->
       <a href="#home" class="logo">Xi<span>Castro</span></a>
 
+      <!-- Navigation links - all connect to sections below -->
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -23,36 +48,55 @@
     </nav>
   </header>
 
-  <!-- Hero section (independent row) -->
+  <!-- Hero section: the big eye-catching intro at the top -->
+  <!-- This section has two columns on desktop: text on left, card on right -->
+  <!-- On mobile, they stack vertically (one above the other) -->
   <section class="hero-header">
     <div class="container hero-content">
+      <!-- Left column: introduction text -->
       <div class="hero-text">
+        <!-- Small label above the main heading -->
         <p class="eyebrow">Web Development Student</p>
+        
+        <!-- Main headline -->
         <h1>Building clean, modern websites using ideas to mold reality.</h1>
+        
+        <!-- Introductory paragraph (called "lead" in design) -->
         <p class="lead">
           I am a beginner web developer learning how to design and build digital
           experiences that are simple, useful, and visually appealing.
         </p>
 
+        <!-- Buttons for main calls-to-action -->
+        <!-- These buttons are full-width on mobile, side-by-side on desktop -->
         <div class="hero-buttons">
           <a href="#projects" class="button primary">Projects</a>
           <a href="#contact" class="button secondary">Contact Me</a>
         </div>
 
+        <!-- Quick facts list -->
+        <!-- On mobile: stacks vertically -->
+        <!-- On desktop: displays horizontally -->
         <ul class="mini-stats" aria-label="Quick facts">
           <li><strong>First</strong><span>Year Learning</span></li>
           <li><strong>4+</strong><span>Projects Planned</span></li>
         </ul>
       </div>
 
+      <!-- Right column: profile card -->
+      <!-- On mobile, this appears below the text -->
+      <!-- On desktop, this appears next to the text -->
       <div class="hero-card" aria-label="Profile summary">
+        <!-- Profile photo link -->
         <a href="#about" class="hero-photo-link" aria-label="Profile photo link">
           <img src="https://github.com/gicastr1-collab/01-prj-personal-site/blob/main/xispics/profile.jpeg?raw=true" alt="Profile photo" class="hero-photo">
         </a>
+        <!-- Current focus box -->
         <div class="card-box">
           <p class="card-label">Current Focus</p>
           <h3>HTML, CSS, and interpreting code to learn new skills.</h3>
         </div>
+        <!-- Quick info boxes (grid layout) -->
         <div class="mini-list">
           <div>
             <span>Learning</span>
