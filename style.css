@@ -429,6 +429,7 @@ p {
 .section-heading2 {
   padding-top: 30px;
   padding-bottom: 30px;
+  justify-content: space-above;
 }
 
 .my-favorite-songs .section-heading {
