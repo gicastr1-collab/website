@@ -115,9 +115,7 @@ main {
 h1,
 h2,
 h3,
-p {
-  margin-top: 0; /* Remove default top margin */
-}\n\n/* H1: Main page heading */\nh1 {\n  /* clamp() creates responsive sizing:\n     - minimum 2.7rem\n     - preferred 5vw (5% of viewport width)\n     - maximum 5rem */\n  font-size: clamp(2.7rem, 5vw, 5rem);\n  line-height: 1.02;      /* Tight line spacing for large text */\n  margin-bottom: 20px;    /* Space below heading */\n  letter-spacing: -0.06em; /* Tighter letter spacing for impact */\n  color: #181818;         /* Dark color for contrast */\n}\n\n/* H2: Section headings */\nh2 {\n  font-size: clamp(2rem, 3vw, 2.8rem); /* Responsive sizing */\n  line-height: 1.2;\n  margin-bottom: 0; /* No space below */\n  color: #181818;\n}\n\n/* H3: Subsection headings */\nh3 {\n  font-size: 1.35rem;\n  margin-bottom: 10px;\n  color: #181818;\n}\n\n/* Paragraph text: body copy throughout site */\np {\n  color: #3d3a37;  /* Readable dark color */\n  font-size: 1rem; /* Standard text size */\n}
+
 
 /* --------------------------------------------------
    Header and navigation styles
