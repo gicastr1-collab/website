@@ -368,11 +368,11 @@ p {
 .about-image {
   width: 100%;
   min-height: 420px;
-  background: solid #fff);
+  background: transparent;);
   border: 1px solid var(--border);
   display: grid;
   place-items: center;
-  color: #fff;
+  color: transparent;
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.08em;
