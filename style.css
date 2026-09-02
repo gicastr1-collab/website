@@ -426,6 +426,46 @@ p {
   color: var(--muted);
 }
 
+.my-favorite-songs {
+  max-width: 860px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.my-favorite-songs h3 {
+  margin-bottom: 24px;
+}
+
+.my-favorite-songs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 24px;
+  justify-items: center;
+  width: min(100%, 760px);
+}
+
+.my-favorite-songs li {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.my-favorite-songs iframe {
+  width: 100%;
+  max-width: 320px;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .my-favorite-songs ul {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* --------------------------------------------------
    Skills and projects card styles
    - These rules shape the cards and image boxes in the skills/projects sections.
