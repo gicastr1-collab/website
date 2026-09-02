@@ -128,12 +128,10 @@ h3,
   position: sticky;  /* Sticks to top while scrolling */
   top: 0;            /* 0 pixels from top */
   z-index: 20;       /* Stays above other content */
-  background: rgba(17, 17, 17, 0.9);  /* Dark, slightly transparent */
-  backdrop-filter: blur(10px);        /* Blur effect behind header */
   border-bottom: 1px solid rgba(241, 230, 216, 0.2); /* Subtle light border */
   display: flex;     /* Flexbox for layout */
   flex-direction: column; /* Stack children vertically */
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28); /* Dark shadow for depth */
+
 }
 
 /* Navbar: container for logo and nav links */
