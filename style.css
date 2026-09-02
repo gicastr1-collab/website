@@ -296,7 +296,6 @@ p {
   /* Image for the hero section */
   width: 100%;
   min-height: 420px;
-  border: 1px solid var(--border);
   display: block;
   object-fit: cover;
   object-position: center;
@@ -368,8 +367,8 @@ p {
 .about-image {
   width: 100%;
   min-height: 420px;
-  background: transparent;);
-  border: 0px solid var(--border);
+  background: transparent;
+  border: 1px solid var(--border);
   display: grid;
   place-items: center;
   color: transparent;
