@@ -426,9 +426,8 @@ p {
   color: var(--muted);
 }
 
-.section-heading2 {
-  padding-top: 60px;
-  padding-bottom: 30px;
+.vertical-indent {
+  margin-top: 30px;
 }
 
 .my-favorite-songs .section-heading {
